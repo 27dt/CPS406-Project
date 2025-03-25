@@ -13,5 +13,4 @@
 - Install [Docker Engine](https://docs.docker.com/engine/install/)
 - Install postgreSQL
 ### Run the DB
-- Run the dockerfile
-- Run ```docker exec -it 406-postgresDB psql -U postgres``` to connect to the postgres server in the docker container
+- Run ```docker compose up``
