@@ -1,4 +1,4 @@
-import pfp from './assets/pfp.jpg'
+import pfp from '../assets/pfp.jpg'
 
 function Card(props){
   return(
