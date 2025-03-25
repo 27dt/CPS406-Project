@@ -11,6 +11,5 @@
 ## PostgreSQL setup with Docker
 ### Dependencies
 - Install [Docker Engine](https://docs.docker.com/engine/install/)
-- Install postgreSQL
 ### Run the DB
-- Run ```docker compose up``
+- Run ```docker compose up``` to start a containerized database
