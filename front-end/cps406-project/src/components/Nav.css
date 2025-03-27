@@ -1,0 +1,27 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  background: rgb(194, 74, 74);
+  padding: 10px;
+  height: 100%;
+  box-shadow: 5px 0 30px hsla(0, 0, 0, 0.25);
+  transition: all .5s ease;
+}
+
+.nav.active{
+  width: 240px;
+}
+
+.nav .icon {
+  display: flex;
+  color: hsl(0, 0, 50);
+  background-color: grey;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 1.5s ease;
+}

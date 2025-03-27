@@ -1,13 +1,19 @@
 import { useState } from 'react'
-import Card from './Card.jsx'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import LoginPage from './pages/LoginPage.jsx'
+import DashboardPage from './pages/DashboardPage.jsx'
+import SearchPage from './pages/SearchPage.jsx'
 
 function App() {
   return (
-    <>
-      <Card i='1' numGames={12}/>
-      <Card i='2' numGames={3}/>
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<DashboardPage />}/>
+        <Route path='/login' element={<LoginPage />}/>
+        <Route path='/search' element={<SearchPage />}/>
+      </Routes>
+    </Router>
   )
 }
 
-export default App
+export default App 
