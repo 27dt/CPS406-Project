@@ -8,7 +8,7 @@ CREATE TABLE games(
     appid INT PRIMARY KEY,
     name VARCHAR(255),
     rdate VARCHAR(255),
-    about VARCHAR(2000),
+    about TEXT,
     img VARCHAR(255),
     web VARCHAR(255),
     dev VARCHAR(255),
