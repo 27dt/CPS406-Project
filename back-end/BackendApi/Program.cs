@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.DataProtection.Repositories;
 using BackendApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +9,7 @@ builder.Services.AddScoped<AppDbContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
-//app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/users", async (IUserRepository userRepository) => {
     return await userRepository.GetAllAsync();
