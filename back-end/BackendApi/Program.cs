@@ -15,7 +15,7 @@ app.MapGet("/users", async (IUserRepository userRepository) => {
     return await userRepository.GetAllAsync();
 });
 
-app.MapGet("/users/{id}", async (int uid, IUserRepository userRepository) => {
+app.MapGet("/users/{uid}", async (int uid, IUserRepository userRepository) => {
     return await userRepository.GetByIdAsync(uid);
 });
 
