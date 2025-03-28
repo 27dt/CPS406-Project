@@ -1,10 +1,14 @@
-
+import Nav from "../components/Nav.jsx"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function GamePage() {
 
   return (
     <>
-      <h3>this is the GamePage</h3>
+      <Nav />
+      <h3>
+        hello, icon: 
+      </h3>
     </>
   )
 
