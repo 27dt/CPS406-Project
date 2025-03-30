@@ -1,0 +1,28 @@
+#container{
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  color: var(--text-color);
+  margin: 10px 0px;
+  width: 100%;
+  height: 15vh;
+  background-image: linear-gradient(gray, black);
+  
+}
+#container img{
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(200, 200, 200, 0.7);
+  opacity: .6;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+h1, h2, p{
+  position: absolute;
+  bottom: .5rem;
+  left: 0.5rem;
+}
+
+

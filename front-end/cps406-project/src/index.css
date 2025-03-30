@@ -25,22 +25,7 @@ body {
 }
 
 main {
-  padding: min(30px, 5%);
-}
-main p {
-  color: var(--secondary-text-color);
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-main section {
-  border: 1px solid var(--accent-color);
-  border-radius: 1em;
-  margin-bottom: 20px;
-  padding: min(3em, 15%);
-}
-
-h1 {
-  margin: 10px 0px;
+  padding: min(20px, 5%);
 }
 .page {
   display: grid;
