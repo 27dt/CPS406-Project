@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using BackendApi.Models;
 using BackendApi.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,10 @@ app.MapGet("/users", async (IUserRepository userRepository) => {
 
 app.MapGet("/users/{uid}", async (int uid, IUserRepository userRepository) => {
     return await userRepository.GetByIdAsync(uid);
+});
+
+app.MapPost("/users", async ([FromBody]User user, IUserRepository userRepository) => {
+    await userRepository.AddAsync(user);
 });
 
 app.Run();
