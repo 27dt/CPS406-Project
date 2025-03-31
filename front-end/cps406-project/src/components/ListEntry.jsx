@@ -12,12 +12,11 @@ function ListEntry(props){
 }
 
 ListEntry.propTypes = {
-  imageLink: PropTypes.string,
   title: PropTypes.string,
-  tags: PropTypes.array,
-  genre: PropTypes.string,
   releaseYear: PropTypes.string,
-  rating: PropTypes.string
+  imageLink: PropTypes.string,
+  rating: PropTypes.string,
+  genre: PropTypes.string, 
 }
 
 
