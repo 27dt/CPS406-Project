@@ -24,4 +24,16 @@ app.MapPost("/users", async ([FromBody]User user, IUserRepository userRepository
     await userRepository.AddAsync(user);
 });
 
+app.MapPatch("/users", async ([FromBody]User user, IUserRepository userRepository) => {
+    await userRepository.UpdateAsync(user);
+});
+
+app.MapDelete("/users/{uid}", async (int uid, IUserRepository userRepository) => {
+    await userRepository.DeleteAsync(uid);
+});
+
+app.MapGet("/login", async ([FromBody]Login payload, IUserRepository userRepository) => {
+    await userRepository.LoginUser(payload);
+});
+
 app.Run();

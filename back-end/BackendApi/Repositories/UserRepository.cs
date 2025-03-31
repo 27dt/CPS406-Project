@@ -33,5 +33,14 @@ namespace BackendApi.Repositories {
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<bool> LoginUser(Login payload) {
+            var user = await _context.users.Where(t => t.password == payload.password && t.username == payload.username).FirstAsync();
+
+            if (user != null) {
+                return true;
+            }
+            return false;
+        }
     }
 }

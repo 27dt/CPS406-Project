@@ -7,5 +7,6 @@ namespace BackendApi.Repositories {
         Task AddAsync(User user);
         Task UpdateAsync(User user);
         Task DeleteAsync(int uid);
+        Task<bool> LoginUser(Login payload);
     }
 }
