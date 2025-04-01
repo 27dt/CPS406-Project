@@ -1,5 +1,5 @@
 import "./Nav.css"
-import { Outlet, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useState } from "react"
 import menu from "../assets/menu.svg"
 import home from "../assets/home.svg"
@@ -34,7 +34,7 @@ function Nav() {
         <li>
           <Link to="/recommend" >
             <img className="icon" src={favorite} alt="Reccomended games button"/>
-            <span>Reccomend</span>
+            <span>Recommend</span>
           </Link>
         </li>
 

@@ -8,8 +8,8 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 html {
@@ -24,9 +24,6 @@ body {
   color: var(--text-color);
 }
 
-main {
-  padding: min(20px, 5%);
-}
 .page {
   display: grid;
   grid-template-columns: auto 1fr;

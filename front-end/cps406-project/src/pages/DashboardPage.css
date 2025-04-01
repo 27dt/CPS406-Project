@@ -1,5 +1,15 @@
 
-
+main{
+  display: grid;
+  grid-template-columns: 60% 40% ;
+}
+#list{
+  border-right: 2px solid var(--accent-color);
+  padding: 1rem 2rem;
+}
+#filter-sort{
+  padding: 2rem;
+}
 
 
 

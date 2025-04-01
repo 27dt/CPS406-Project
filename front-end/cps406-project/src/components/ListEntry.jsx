@@ -1,13 +1,22 @@
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
 import "./ListEntry.css"
 
 function ListEntry(props){
+  
+  
   return(
-    <div id="container">
+    <Link id="container" to="/game-page">
       <img src={props.imageLink} alt="" />
-      <h1>{props.title}</h1>
-      <p>{props.releaseYear}</p>
-    </div>
+      <div id="text">
+        <div id="wrapper">
+          <div id="title">{props.title}</div>
+          <div id="releaseYear">,{props.releaseYear}</div>
+        </div>
+        <div id="genre">{props.genre}</div>
+        <div id="rating">{props.rating}</div>
+      </div>
+    </Link>
   )
 }
 

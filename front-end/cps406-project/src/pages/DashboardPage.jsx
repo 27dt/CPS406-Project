@@ -1,16 +1,18 @@
+import "./DashboardPage.css"
 import ListEntry from "../components/ListEntry.jsx"
 import Nav from "../components/Nav.jsx"
 
 
 function DashboardPage() {
   
+  // remove after linked to the backend
   const games = `[
     {
         "appid": 453212,
-        "name": "portal",
+        "name": "Portal",
         "rdate": "Oct 23, 1884",
         "about": "this is a game about shooting portals",
-        "img": "some steam img link here",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/400/header.jpg?t=1738796058",
         "web": "some game website here",
         "dev": "Valve",
         "pub": "Valve",
@@ -18,10 +20,10 @@ function DashboardPage() {
     },
     {
         "appid": 45512,
-        "name": "nubby's number factory",
+        "name": "Nubby's Number Factory",
         "rdate": "Nov 12, 2025",
         "about": "shoot pegs fun roguelike",
-        "img": "some steam img link here",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3191030/header.jpg?t=1742145780",
         "web": "some game website here",
         "dev": "nubby",
         "pub": "somepupblisher",
@@ -29,10 +31,10 @@ function DashboardPage() {
     },
     {
         "appid": 3656,
-        "name": "shoot john lennon",
+        "name": "Shoot John Lennon",
         "rdate": "Oct 23, 2003",
         "about": "this is a game about shooting john lennon",
-        "img": "some steam img link here",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/507010/header.jpg?t=1569274431",
         "web": "some game website here",
         "dev": "yoko ono",
         "pub": "the music industry",
@@ -40,10 +42,10 @@ function DashboardPage() {
     },
     {
         "appid": 566733,
-        "name": "overwatch 2",
+        "name": "Overwatch 2",
         "rdate": "Jun 23, 2016",
         "about": "worse than rivals",
-        "img": "some steam img link here",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
         "web": "some game website here",
         "dev": "Valve",
         "pub": "Valve",
@@ -51,17 +53,34 @@ function DashboardPage() {
     }
 ]`
 
+  function json_to_objs(text) {
+    let games = JSON.parse(text);
+    return games
+  }
+
+  let gamesList = json_to_objs(games)
+
+  let list = gamesList.map((obj) => <ListEntry 
+  key={obj.appid}
+  title={obj.name}
+  releaseYear={obj.rdate.split(" ")[2]}
+  rating={"XX%"}
+  imageLink={obj.img}
+  genre={obj.genre.split(",")[0]}/>
+)
+
   return (
 
 
     <div className="page">
       <Nav />
       <main>
-        
-        <ListEntry 
-        imageLink="https://i.pinimg.com/736x/df/fd/01/dffd015b65ed0c9b8949dc2972f77d05.jpg"
-        title="Grand Theft Auto V"
-        />
+        <section id="list">
+          {list} 
+        </section>
+        <section id="filter-sort">
+          <h1>Filter & sort options</h1>
+        </section>
       </main>
     </div>
   )
