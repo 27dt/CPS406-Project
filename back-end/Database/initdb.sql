@@ -6,14 +6,16 @@ CREATE TABLE users(
 
 CREATE TABLE games(
     appid INT PRIMARY KEY,
-    name VARCHAR(255),
-    rdate VARCHAR(255),
-    about VARCHAR(2000),
-    img VARCHAR(255),
-    web VARCHAR(255),
-    dev VARCHAR(255),
-    pub VARCHAR(255),
-    genre VARCHAR(100)
+    name VARCHAR(255) NULL,
+    rdate VARCHAR(255) NULL,
+    price FLOAT NULL,
+    about TEXT NULL,
+    img VARCHAR(255) NULL,
+    web VARCHAR(255) NULL,
+    dev VARCHAR(255) NULL,
+    pub VARCHAR(255) NULL,
+    genre TEXT NULL,
+    tags TEXT NULL
 );
 
 CREATE TABLE ratings(
@@ -24,3 +26,8 @@ CREATE TABLE ratings(
     FOREIGN KEY (userid) REFERENCES users(uid) ON DELETE CASCADE,
     FOREIGN KEY (gameid) REFERENCES games(appid) ON DELETE CASCADE
 );
+
+COPY games(appid, name, rdate, price, about, img, web, dev, pub, genre, tags)
+FROM '/bin/filter_steam_games.csv'
+DELIMITER ','
+CSV HEADER;

@@ -482,3 +482,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Input CSV Files
+filter_steam_games.csv
+steam_games.csv
