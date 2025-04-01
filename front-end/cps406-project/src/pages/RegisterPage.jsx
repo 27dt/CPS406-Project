@@ -1,0 +1,25 @@
+import EntryField from "../components/EntryField.jsx"
+import LinkMessage from "../components/LinkMessage.jsx"
+import FormButton from "../components/FormButton.jsx"
+
+import "./RegisterPage.css"
+
+function RegisterPage() {
+  return (
+    <>
+      <h1>Register</h1>
+      <section className="main-content register">
+        <EntryField text="Username" id="username" name="username"></EntryField>
+        <EntryField text="Password" id="password" name="password"></EntryField>
+        <EntryField text="Confirm Password" id="password" name="password"></EntryField>
+        <FormButton text="Register"></FormButton>
+      </section>
+      <section className="link-content login">
+        <LinkMessage beforeText="Already have an account?" afterText="instead!" pagePath="/#/login" linkName="Login"></LinkMessage>
+      </section>
+    </>
+  )
+
+}
+
+export default RegisterPage

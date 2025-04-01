@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import LoginPage from './pages/LoginPage.jsx'
+import RegisterPage from './pages/RegisterPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
+import LandingPage from './pages/LandingPage.jsx'
+import GamePage from './pages/GamePage.jsx'
 
 function App() {
   return (
@@ -10,7 +13,10 @@ function App() {
       <Routes>
         <Route path='/' element={<DashboardPage />}/>
         <Route path='/login' element={<LoginPage />}/>
+        <Route path='/register' element={<RegisterPage />}/>
         <Route path='/search' element={<SearchPage />}/>
+        <Route path='/landingpage' element={<LandingPage />}/>
+        <Route path='/gamepage' element={<GamePage />}/>
       </Routes>
     </Router>
   )

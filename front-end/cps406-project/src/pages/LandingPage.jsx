@@ -4,10 +4,10 @@ function LandingPage() {
 
   return (
     <>
-      <h3>this is the LandingPage</h3>
+      <h1>this is the Landing Page</h1>
     </>
   )
-
+  
 }
 
 export default LandingPage
