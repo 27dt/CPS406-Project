@@ -14,7 +14,13 @@ with open(readFile, "r") as csvfile:
 
     for row in csvreader:
         
-        if len(row[1]) <= 254 and len(row[6]) <= 254 and len(row[7]) <= 254 and len(row[8]) <= 254:
+        if (
+            len(row[1]) <= 254 and 
+            len(row[6]) <= 254 and 
+            len(row[7]) <= 254 and 
+            len(row[8]) <= 254 and
+            len(row[1]) != 0
+            ):
             rows.append(row)
 
 with open(writeFile, "w") as csvFile:
