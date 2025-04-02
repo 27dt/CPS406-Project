@@ -4,11 +4,18 @@ main{
   grid-template-columns: 60% 40% ;
 }
 #list{
+  display: flex;
+  flex-direction: column;
   border-right: 2px solid var(--accent-color);
   padding: 1rem 2rem;
 }
 #filter-sort{
   padding: 2rem;
+}
+
+#test-btn {
+  font-size: 4rem;
+  height: 300px;
 }
 
 

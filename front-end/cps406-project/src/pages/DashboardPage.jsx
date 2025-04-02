@@ -1,10 +1,13 @@
-import "./DashboardPage.css"
+import { useState } from "react"
 import ListEntry from "../components/ListEntry.jsx"
 import Nav from "../components/Nav.jsx"
+import Modal from "../components/Modal.jsx"
+import "./DashboardPage.css"
 
 
 function DashboardPage() {
   
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   // remove after linked to the backend
   const games = `[
     {
@@ -50,6 +53,71 @@ function DashboardPage() {
         "dev": "Valve",
         "pub": "Valve",
         "genre": "multiplayer,FPS"
+    },
+    {
+        "appid": 566733,
+        "name": "Overwatch 2",
+        "rdate": "Jun 23, 2016",
+        "about": "worse than rivals",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
+        "web": "some game website here",
+        "dev": "Valve",
+        "pub": "Valve",
+        "genre": "multiplayer,FPS"
+    },
+    {
+        "appid": 566733,
+        "name": "Overwatch 2",
+        "rdate": "Jun 23, 2016",
+        "about": "worse than rivals",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
+        "web": "some game website here",
+        "dev": "Valve",
+        "pub": "Valve",
+        "genre": "multiplayer,FPS"
+    },
+    {
+        "appid": 566733,
+        "name": "Overwatch 2",
+        "rdate": "Jun 23, 2016",
+        "about": "worse than rivals",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
+        "web": "some game website here",
+        "dev": "Valve",
+        "pub": "Valve",
+        "genre": "multiplayer,FPS"
+    },
+    {
+        "appid": 566733,
+        "name": "Overwatch 2",
+        "rdate": "Jun 23, 2016",
+        "about": "worse than rivals",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
+        "web": "some game website here",
+        "dev": "Valve",
+        "pub": "Valve",
+        "genre": "multiplayer,FPS"
+    },
+    {
+        "appid": 566733,
+        "name": "Overwatch 2",
+        "rdate": "Jun 23, 2016",
+        "about": "worse than rivals",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
+        "web": "some game website here",
+        "dev": "Valve",
+        "pub": "Valve",
+        "genre": "multiplayer,FPS"
+    },{
+        "appid": 566733,
+        "name": "Overwatch 2",
+        "rdate": "Jun 23, 2016",
+        "about": "worse than rivals",
+        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
+        "web": "some game website here",
+        "dev": "Valve",
+        "pub": "Valve",
+        "genre": "multiplayer,FPS"
     }
 ]`
 
@@ -70,12 +138,19 @@ function DashboardPage() {
 )
 
   return (
-
-
     <div className="page">
       <Nav />
       <main>
         <section id="list">
+          <Modal open={modalIsOpen} onClose={() => setModalIsOpen(false)}>
+            <h1> This is a modal</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias beatae cumque excepturi quidem eos provident dolor numquam blanditiis magni perferendis voluptate corporis suscipit alias, impedit nobis sapiente? Assumenda sequi, eos corrupti sint placeat quia deleniti illum delectus aliquid! Odit ut fugit sunt mollitia iste natus, debitis cupiditate quaerat est.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias beatae cumque excepturi quidem eos provident dolor numquam blanditiis magni perferendis voluptate corporis suscipit alias, impedit nobis sapiente? Assumenda sequi, eos corrupti sint placeat quia deleniti illum delectus aliquid! Odit ut fugit sunt mollitia iste natus, debitis cupiditate quaerat est.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias beatae cumque excepturi quidem eos provident dolor numquam blanditiis magni perferendis voluptate corporis suscipit alias, impedit nobis sapiente? Assumenda sequi, eos corrupti sint placeat quia deleniti illum delectus aliquid! Odit ut fugit sunt mollitia iste natus, debitis cupiditate quaerat est.</p>
+          </Modal>
+          <button id="test-btn"
+          onClick={() => setModalIsOpen(true)}> 
+          Open Modal</button>
           {list} 
         </section>
         <section id="filter-sort">

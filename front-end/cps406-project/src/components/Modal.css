@@ -1,0 +1,31 @@
+.modal-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 0%, 0.7);
+  z-index: 100;
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--main-color);
+  padding: 3rem;
+  z-index: 100;
+}
+
+.close-modal {
+  border-radius: 5px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  fill: var(--text-color);
+  width: 2.5rem;
+}
+.close-modal:hover{
+  background-color: var(--hover-color);
+}

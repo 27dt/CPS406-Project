@@ -6,14 +6,6 @@ function SettingsPage() {
     <div className="page">
       <Nav />
       <main>
-        <section id="text">
-          <div id="wrapper">
-            <p id="title">Title</p>
-            <sub id="year">,year</sub>
-          </div>
-          <p id="rating">mixed(1231)</p>
-          <p id="genre">Action</p>
-        </section>
       </main>
     </div>
   )
