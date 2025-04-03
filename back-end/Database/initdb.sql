@@ -6,7 +6,7 @@ CREATE TABLE users(
 
 CREATE TABLE games(
     appid INT PRIMARY KEY,
-    name VARCHAR(255) NULL,
+    name VARCHAR(255) NOT NULL,
     rdate VARCHAR(255) NULL,
     price FLOAT NULL,
     about TEXT NULL,
