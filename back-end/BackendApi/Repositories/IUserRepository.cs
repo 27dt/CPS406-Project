@@ -1,6 +1,8 @@
 using BackendApi.Models;
 
 namespace BackendApi.Repositories {
+
+    // Sets up an interface of user-table related database functions. 
     public interface IUserRepository {
         Task<IEnumerable<User>> GetAllAsync();
         Task<User?> GetByIdAsync(int uid);
