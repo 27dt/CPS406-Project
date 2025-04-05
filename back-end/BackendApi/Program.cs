@@ -70,7 +70,7 @@ app.MapDelete("/games/{appid}", async (int appid, IGameRepository gameRepository
 
 // GET ENDPOINT /games/search/query, searches and returns list of games matching query from game table.
 app.MapGet("/games/search/{query}", async (string query, IGameRepository gameRepository) => {
-    await gameRepository.SearchAsync(query);
+    return await gameRepository.SearchAsync(query);
 });
 
 app.Run();
