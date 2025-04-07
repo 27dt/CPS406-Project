@@ -11,7 +11,7 @@ namespace BackendApi.Repositories {
         }
 
         // Gets list of all users.
-        public async Task<IEnumerable<User>> GetAllAsync() {
+        public async Task<List<User>> GetAllAsync() {
             return await _context.users.ToListAsync();
         }
 
