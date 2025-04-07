@@ -4,8 +4,11 @@ import RecommendPage from './pages/RecommendPage.jsx'
 import SettingsPage from './pages/SettingsPage.jsx'
 import GamePage from './pages/GamePage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
+import RegisterPage from './pages/RegisterPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
+import LandingPage from './pages/LandingPage.jsx'
+import GamePage from './pages/GamePage.jsx'
 
 export const UserContext = createContext();
 
