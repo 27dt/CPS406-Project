@@ -81,8 +81,7 @@
   border-radius: .5em;
   margin: 5% 0px;
   padding: .75rem;
-  aspect-ratio: 1 / 1;
-  height: fit-content;
+  height: 2.5rem;
   border: none;
 }
 .button-bg:hover{

@@ -8,7 +8,6 @@ function ListEntry(props){
   
   
   return(
-    
       <div id="outer-container">
         <Link id="inner-container" to="/game-page">
           <img src={props.imageLink} alt="" />

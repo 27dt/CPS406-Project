@@ -1,12 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import ListEntry from "../components/ListEntry.jsx"
 import Nav from "../components/Nav.jsx"
 import Modal from "../components/Modal.jsx"
+import { UserContext } from "../App.jsx"
 import "./DashboardPage.css"
 
 
 function DashboardPage() {
   
+  const {userState, userDispatch} = useContext(UserContext);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   // remove after linked to the backend
   const games = `[
@@ -44,71 +47,6 @@ function DashboardPage() {
         "genre": "Indie,Rhythm"
     },
     {
-        "appid": 566733,
-        "name": "Overwatch 2",
-        "rdate": "Jun 23, 2016",
-        "about": "worse than rivals",
-        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
-        "web": "some game website here",
-        "dev": "Valve",
-        "pub": "Valve",
-        "genre": "multiplayer,FPS"
-    },
-    {
-        "appid": 566733,
-        "name": "Overwatch 2",
-        "rdate": "Jun 23, 2016",
-        "about": "worse than rivals",
-        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
-        "web": "some game website here",
-        "dev": "Valve",
-        "pub": "Valve",
-        "genre": "multiplayer,FPS"
-    },
-    {
-        "appid": 566733,
-        "name": "Overwatch 2",
-        "rdate": "Jun 23, 2016",
-        "about": "worse than rivals",
-        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
-        "web": "some game website here",
-        "dev": "Valve",
-        "pub": "Valve",
-        "genre": "multiplayer,FPS"
-    },
-    {
-        "appid": 566733,
-        "name": "Overwatch 2",
-        "rdate": "Jun 23, 2016",
-        "about": "worse than rivals",
-        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
-        "web": "some game website here",
-        "dev": "Valve",
-        "pub": "Valve",
-        "genre": "multiplayer,FPS"
-    },
-    {
-        "appid": 566733,
-        "name": "Overwatch 2",
-        "rdate": "Jun 23, 2016",
-        "about": "worse than rivals",
-        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
-        "web": "some game website here",
-        "dev": "Valve",
-        "pub": "Valve",
-        "genre": "multiplayer,FPS"
-    },
-    {
-        "appid": 566733,
-        "name": "Overwatch 2",
-        "rdate": "Jun 23, 2016",
-        "about": "worse than rivals",
-        "img": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg?t=1742322534",
-        "web": "some game website here",
-        "dev": "Valve",
-        "pub": "Valve",
-        "genre": "multiplayer,FPS"
-    },{
         "appid": 566733,
         "name": "Overwatch 2",
         "rdate": "Jun 23, 2016",
