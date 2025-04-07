@@ -43,7 +43,7 @@ namespace BackendApi.Repositories {
             var results = new List<Game>();
             
             if (!string.IsNullOrEmpty(query)) {
-                results = await _context.games.Where(g => g.name.ToUpper().Contains(query.ToUpper())).ToListAsync();
+                results = await _context.games.Where(g => g.name.Replace(" ", "+").ToUpper().Contains(query.ToUpper())).ToListAsync();
             }
 
             return results;
