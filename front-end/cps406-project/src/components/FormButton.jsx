@@ -2,7 +2,7 @@ import "./FormButton.css"
 
 function FormButton(props) {
     return (
-        <button className="form-button">{props.text}</button>
+        <button className={props.className}>{props.text}</button>
     )
 }
 
