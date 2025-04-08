@@ -13,7 +13,23 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IGameRepository, GameRepository>();
 builder.Services.AddScoped<IRatingRepository, RatingRepository>();
 
+// Setting up OpenApi Specifications
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddOpenApiDocument(config => {
+    config.DocumentName = "GameDex API";
+    config.Title = "GameDex API v1";
+    config.Version = "v1";
+});
+
 var app = builder.Build();
+
+app.UseOpenApi();
+app.UseSwaggerUi(config => {
+    config.DocumentTitle = "GameDex API";
+    config.Path = "/swagger";
+    config.DocumentPath = "/swagger/{documentName}/swagger.json";
+    config.DocExpansion = "list";
+});
 
 app.MapGroup("/users")
     .MapUsersApi()
