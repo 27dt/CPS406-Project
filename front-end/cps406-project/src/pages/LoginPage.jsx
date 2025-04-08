@@ -1,4 +1,8 @@
 
+import { useState } from "react";
+import EntryField from "../components/EntryField";
+import FormButton from "../components/FormButton";
+import LinkMessage from "../components/LinkMessage";
 import "./LoginPage.css"
 
 function LoginPage() {
@@ -18,7 +22,7 @@ function LoginPage() {
     <>
       <h1>Login</h1>
       <section className="main-content login">
-        <form onSubmit={handleSubmit}>\
+        <form onSubmit={handleSubmit}>
           <EntryField 
             type="text"
             text="Username" 
