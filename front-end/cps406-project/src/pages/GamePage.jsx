@@ -1,4 +1,4 @@
-
+import "./GamePage.css"
 
 function GamePage() {
 

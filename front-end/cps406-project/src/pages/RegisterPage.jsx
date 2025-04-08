@@ -1,5 +1,4 @@
 import EntryField from "../components/EntryField.jsx"
-import LinkMessage from "../components/LinkMessage.jsx"
 import FormButton from "../components/FormButton.jsx"
 
 import "./RegisterPage.css"
@@ -16,7 +15,7 @@ function RegisterPage() {
           <FormButton text="Register"></FormButton>
         </section>
         <section className="link-content-register">
-          <LinkMessage beforeText="Already have an account?" afterText="instead!" pagePath="/#/login" linkName="Login"></LinkMessage>
+          <p>Already have an account? <a href="/#/login">Login</a> instead!</p>
         </section>
       </div>
     </div>

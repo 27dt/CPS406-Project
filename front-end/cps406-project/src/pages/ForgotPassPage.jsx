@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 
 import EntryField from "../components/EntryField.jsx"
-import LinkMessage from "../components/LinkMessage.jsx"
 import FormButton from "../components/FormButton.jsx"
 
 import "./ForgotPassPage.css"
@@ -50,40 +49,37 @@ function ForgotPassPage() {
     };
   
     return (
-      <>
-        <h1>Forgot Password</h1>
-        <section className="main-content reset">
-          <form onSubmit={handleSubmit}>
-            <EntryField 
-              type="password"
-              text="Password" 
-              id="password" 
-              name="password" 
-              value={formValues.password}
-              onChange={handleChange}>
-            </EntryField>
-            <p>{formErrors.password}</p>
-            <EntryField 
-              type="password"
-              text="Confirm Password" 
-              id="confpassword" 
-              name="confpassword" 
-              value={formValues.confpass}
-              onChange={handleChange}>
-            </EntryField>
-            <p>{formErrors.confpass}</p>
-            <FormButton text="Reset Password"></FormButton>
-          </form>
-        </section>
-        <section className="link-content reset">
-          <LinkMessage 
-            beforeText="Don't have an account?" 
-            afterText="instead!" 
-            pagePath="/#/register" 
-            linkName="Register">
-          </LinkMessage>
-        </section>
-      </>
+      <div className="forgot-page">
+        <div className="forgot-box">
+          <h1>Forgot Password</h1>
+          <section className="main-content-reset">
+            <form onSubmit={handleSubmit}>
+              <EntryField 
+                type="password"
+                text="Password" 
+                id="password" 
+                name="password" 
+                value={formValues.password}
+                onChange={handleChange}>
+              </EntryField>
+              <p>{formErrors.password}</p>
+              <EntryField 
+                type="password"
+                text="Confirm Password" 
+                id="confpassword" 
+                name="confpassword" 
+                value={formValues.confpass}
+                onChange={handleChange}>
+              </EntryField>
+              <p>{formErrors.confpass}</p>
+              <FormButton text="Reset Password"></FormButton>
+            </form>
+          </section>
+          <section className="link-content-reset">
+            <p>Don't have an account? <a href="/#/register">Register</a> instead!</p>
+          </section>
+        </div>
+      </div>
     )
 }
 
