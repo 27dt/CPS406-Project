@@ -47,46 +47,43 @@ function LoginPage() {
   };
 
   return (
-    <>
-      <h1>Login</h1>
-      <section className="main-content login">
-        <form onSubmit={handleSubmit}>
-          <EntryField 
-            type="text"
-            text="Username" 
-            id="username" 
-            name="username" 
-            value={formValues.username}
-            onChange={handleChange}>
-          </EntryField>
-          <p>{formErrors.username}</p>
-          <EntryField 
-            type="password"
-            text="Password" 
-            id="password" 
-            name="password" 
-            value={formValues.password}
-            onChange={handleChange}>
-          </EntryField>
-          <p>{formErrors.password}</p>
-          <FormButton text="Login"></FormButton>
-        </form>
-      </section>
-      <section className="link-content login">
-      <LinkMessage 
-          beforeText="Forgot your password?" 
-          afterText=" to reset it!" 
-          pagePath="/#/forgotpassword" 
-          linkName="Click here">
-        </LinkMessage>
-        <LinkMessage 
-          beforeText="Don't have an account?" 
-          afterText="instead!" 
-          pagePath="/#/register" 
-          linkName="Register">
-        </LinkMessage>
-      </section>
-    </>
+    <div className="login-page">
+      <div className="login-box">
+        <h1>Login</h1>
+
+        <section className="main-content-login">
+          <form onSubmit={handleSubmit}>
+            <EntryField 
+              className="entry"
+              type="text"
+              text="Username" 
+              name="username" 
+              value={formValues.username}
+              onChange={handleChange}>
+            </EntryField>
+            <EntryField 
+              className="entry"
+              type="password"
+              text="Password" 
+              name="password" 
+              value={formValues.password}
+              onChange={handleChange}>
+            </EntryField>
+            <FormButton className="login-btn" text="Login"></FormButton>
+          </form>
+        </section>
+
+        <section className="link-content-login">
+          <a href="/#/login">Forgot your password?<br></br></a>
+          <LinkMessage 
+            beforeText="Don't have an account?" 
+            afterText="instead!" 
+            pagePath="/#/register" 
+            linkName="Register">
+          </LinkMessage>
+        </section>
+      </div>
+    </div>
   )
 }
 

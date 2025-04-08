@@ -2,11 +2,9 @@ import "./EntryField.css"
 
 function EntryField(props) {
     return (
-        <div className="entry-field">
-            <h2 className="entry-text">{props.text}</h2>
+        <div className={props.className}>
             <input 
                 type={props.type} 
-                id={props.id}
                 name={props.name} 
                 placeholder={props.text} 
                 value={props.value} 
