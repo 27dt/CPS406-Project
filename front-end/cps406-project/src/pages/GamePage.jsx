@@ -1,5 +1,5 @@
-import Nav from "../components/Nav.jsx"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import "./GamePage.css"
+
 
 function GamePage() {
 
