@@ -3,11 +3,12 @@ main{
   display: grid;
   grid-template-columns: 70% 30% ;
 }
+
 #list{
   display: flex;
   flex-direction: column;
   border-right: 2px solid var(--accent-color);
-  padding: 1rem 2rem;
+  padding: 0rem 2rem;
   text-align: center;
 
   hr {
@@ -21,16 +22,16 @@ main{
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 10rem;
+  height: 8rem;
 }
 #list > #title > img {
   position: relative;
   left: 0.5rem;
-  top: 2rem;
+  top: 1.5rem;
 }
 
 #list h1 {
-  font-size: 6rem;
+  font-size: 5rem;
 }
 
 #filter-sort{
@@ -52,26 +53,37 @@ form {
 
 #filter-sort label {
   font-size: 1.25rem;
-  margin: .5rem 0rem;
 }
 
-#ascending {
-  border-right: 1px solid var(--accent-color);
-}
 
-#descending {
-  margin-left: .5rem;
-}
 
 #filtering {
   text-align: center;
-}
 
-#filtering input {
-  margin-left: 0.5rem;
-}
-#filtering label {
-  margin-right: 0.5rem;
+  input {
+    margin-left: 0.5rem;
+  }
+  label {
+    margin-right: 0.5rem;
+  }
+
+  .filter-entry {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+
+    input {
+      padding: .25rem;
+      border: 0px;
+      color: var(--text-color);
+      font-size: 1.25rem;
+      background-color: rgb(100, 100, 100);
+      border-radius: 5px;
+      outline: none;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
 }
 
 #sorting {
@@ -88,8 +100,19 @@ form {
     margin: .75rem 0rem;
     font-size: 1.5rem;
   }
+
+  #ascending {
+    border-right: 1px solid var(--accent-color);
+  }
+  
+  #descending {
+    margin-left: .5rem;
+  }
 }
 
-
+#help-modal {
+  width: 50rem;
+  height: 8rem;
+}
 
 

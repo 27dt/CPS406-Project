@@ -1,13 +1,6 @@
 import {useState, useEffect} from "react";
-
 import EntryField from "../components/EntryField.jsx"
-import LinkMessage from "../components/LinkMessage.jsx"
 import FormButton from "../components/FormButton.jsx"
-
-import { useState } from "react";
-import EntryField from "../components/EntryField";
-import FormButton from "../components/FormButton";
-import LinkMessage from "../components/LinkMessage";
 import "./LoginPage.css"
 
 function LoginPage() {

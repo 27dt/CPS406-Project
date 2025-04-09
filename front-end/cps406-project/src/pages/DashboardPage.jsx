@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import HelpIcon from "../assets/help.svg"
 import ListEntry from "../components/ListEntry.jsx"
+import EntryField from "../components/EntryField.jsx"
 import Nav from "../components/Nav.jsx"
 import Modal from "../components/Modal.jsx"
 import { UserContext } from "../App.jsx"
@@ -8,7 +9,10 @@ import "./DashboardPage.css"
 
 function json_to_objs(text) {
   let games = JSON.parse(text);
-  games.map((obj) => obj.rating = "0") // replace with the user rating from db
+  games.map((obj) => {
+    obj.rating = "0";
+    obj.year = obj.rdate.split(" ")[2]
+  }) // replace with the user rating from db
   return games
 }
 
@@ -74,7 +78,7 @@ function DashboardPage() {
       gameList.sort((a, b) => a.name.localeCompare(b.name))
       break;
     case "year":
-      gameList.sort((a, b) => Number(a.rdate.split(" ")[2]) - Number(b.rdate.split(" ")[2]) )
+      gameList.sort((a, b) => Number(a.year) - Number(b.year))
       break;
     case "rating":
       gameList.sort((a, b) => Number(a.rating) - Number(b.rating))
@@ -91,12 +95,10 @@ function DashboardPage() {
   }
   
   // filtering
-  const [fitlerValue, setFitlerValue] = useState('default');
+  const [fitlerValue, setFitlerValue] = useState('name');
   const [fitlerString, setFitlerString] = useState('');
-  
 
-
-
+  gameList = gameList.filter((game) => game[fitlerValue].toLowerCase().includes(fitlerString.toLowerCase()))
 
   let list = gameList.map((obj) => <ListEntry 
     key={obj.appid}
@@ -108,25 +110,29 @@ function DashboardPage() {
     />
   ) 
 
-  // example on how to use modal
-  // 
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
-  // 
-  // <Modal open={modalIsOpen} onClose={() => setModalIsOpen(false)}>
-  //   <h1> This is a modal</h1>
-  //   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias beatae cumque excepturi quidem eos provident dolor numquam blanditiis magni perferendis voluptate corporis suscipit alias, impedit nobis sapiente? Assumenda sequi, eos corrupti sint placeat quia deleniti illum delectus aliquid! Odit ut fugit sunt mollitia iste natus, debitis cupiditate quaerat est.</p>
-  //   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias beatae cumque excepturi quidem eos provident dolor numquam blanditiis magni perferendis voluptate corporis suscipit alias, impedit nobis sapiente? Assumenda sequi, eos corrupti sint placeat quia deleniti illum delectus aliquid! Odit ut fugit sunt mollitia iste natus, debitis cupiditate quaerat est.</p>
-  //   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias beatae cumque excepturi quidem eos provident dolor numquam blanditiis magni perferendis voluptate corporis suscipit alias, impedit nobis sapiente? Assumenda sequi, eos corrupti sint placeat quia deleniti illum delectus aliquid! Odit ut fugit sunt mollitia iste natus, debitis cupiditate quaerat est.</p>
-  // </Modal>
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  
 
   return (
     <div className="page">
       <Nav />
       <main>
+        <Modal open={modalIsOpen} onClose={() => setModalIsOpen(false)}>
+          <div id="help-modal">
+            <ListEntry 
+            key={-1}
+            title={"Game Title"}
+            releaseYear={"Release year"}
+            rating={"Rating"}
+            imageLink={"https://t3.ftcdn.net/jpg/03/35/13/14/360_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg"}
+            genre={"Genre"}
+            />
+          </div>
+        </Modal>
         <section id="list">
           <div id="title">
             <h1>My List</h1>
-            <img src={HelpIcon} alt="Help-Icon"/>
+            <img src={HelpIcon} alt="Help-Icon" onClick={() => setModalIsOpen(true)}/>
           </div>
           <hr />
           {list} 
@@ -169,14 +175,23 @@ function DashboardPage() {
           <h1>Filter</h1>
 
           <form action="" id="filtering">
-            <input type="radio" id="name-filter" name="filter"/>
+            <input type="radio" id="name-filter" name="filter" value="name" onChange={e => setFitlerValue(e.target.value)}/>
             <label htmlFor="name-filter"> Name</label>
-            <input type="radio" id="year-filter" name="filter"/>
+            <input type="radio" id="year-filter" name="filter" value="year" onChange={e => setFitlerValue(e.target.value)}/>
             <label htmlFor="year-filter"> Year</label>
-            <input type="radio" id="rating-filter" name="filter"/>
+            <input type="radio" id="rating-filter" name="filter" value="rating" onChange={e => setFitlerValue(e.target.value)}/>
             <label htmlFor="rating-filter"> Rating</label>
-            <input type="radio" id="genre-filter" name="filter"/>
+            <input type="radio" id="genre-filter" name="filter" value="genre" onChange={e => setFitlerValue(e.target.value)}/>
             <label htmlFor="genre-filter"> Genre</label>
+
+            <EntryField 
+            className="filter-entry"
+            type="text" 
+            name="filter-entry"
+            placeholder="Search"
+            value={fitlerString}
+            onChange={e => setFitlerString(e.target.value)}
+            />
           </form>
 
         </section>
