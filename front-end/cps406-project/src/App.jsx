@@ -5,6 +5,7 @@ import SettingsPage from './pages/SettingsPage.jsx'
 import GamePage from './pages/GamePage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'
+import ForgotPassPage from './pages/ForgotPassPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
 import LandingPage from './pages/LandingPage.jsx'
@@ -44,12 +45,15 @@ function App() {
       >
         <Router>
           <Routes>
-            <Route path='/' element={<DashboardPage />}/>
+            <Route path='/' element={<LandingPage />}/>
+            <Route path='/login' element={<LoginPage />}/>
+            <Route path='/register' element={<RegisterPage />}/>
+            <Route path='/forgotpassword' element={<ForgotPassPage />}/>
+            <Route path='/dashboard' element={<DashboardPage />}/>
+            <Route path='/search' element={<SearchPage />}/>
+            <Route path='/gamepage' element={<GamePage />}/>
             <Route path='/recommend' element={<RecommendPage />}/>
             <Route path='/settings' element={<SettingsPage />}/>
-            <Route path='/game-page' element={<GamePage />}/>
-            <Route path='/login' element={<LoginPage />}/>
-            <Route path='/search' element={<SearchPage />}/>
           </Routes>
         </Router>
       </UserContext.Provider>

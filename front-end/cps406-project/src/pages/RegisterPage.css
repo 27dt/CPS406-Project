@@ -1,0 +1,41 @@
+.register-page {
+    height: 100%;
+    width: 100%;
+    background-color: darkgray;
+}
+
+.register-box {
+    width: 25%;
+    height: fit-content;
+    background-color: rgb(51, 230, 243);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.25rem;
+}
+
+.link-content-register {
+    position: relative;
+    top: 20%;
+    margin-top: 2rem;
+}
+
+.entry input {
+    width: 16rem;
+    margin-top: 2rem;
+}
+
+.form-button {
+    padding: 0.5rem 1rem;
+    margin: 2rem 0rem;
+}
