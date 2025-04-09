@@ -8,15 +8,88 @@ main{
   flex-direction: column;
   border-right: 2px solid var(--accent-color);
   padding: 1rem 2rem;
-}
-#filter-sort{
-  padding: 2rem;
+  text-align: center;
+
+  hr {
+    border: 1px solid var(--accent-color);
+    margin-bottom: 1rem;
+  }
 }
 
-#test-btn {
-  font-size: 4rem;
-  height: 300px;
+#list > #title {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 10rem;
 }
+#list > #title > img {
+  position: relative;
+  left: 0.5rem;
+  top: 2rem;
+}
+
+#list h1 {
+  font-size: 6rem;
+}
+
+#filter-sort{
+  align-items: center;
+  padding: 2rem;
+  
+  h1 {
+    font-size: 2rem;
+    margin: 1rem 0rem;
+    text-align: center;
+  }
+}
+
+form {
+  border-radius: 10px;
+  background-color: var(--main-color);
+  padding: 1.5rem;
+}
+
+#filter-sort label {
+  font-size: 1.25rem;
+  margin: .5rem 0rem;
+}
+
+#ascending {
+  border-right: 1px solid var(--accent-color);
+}
+
+#descending {
+  margin-left: .5rem;
+}
+
+#filtering {
+  text-align: center;
+}
+
+#filtering input {
+  margin-left: 0.5rem;
+}
+#filtering label {
+  margin-right: 0.5rem;
+}
+
+#sorting {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+    margin: .5rem 0rem;
+  }
+
+  h2 {
+    margin: .75rem 0rem;
+    font-size: 1.5rem;
+  }
+}
+
 
 
 

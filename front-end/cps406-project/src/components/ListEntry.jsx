@@ -13,14 +13,14 @@ function ListEntry(props){
           <img src={props.imageLink} alt="" />
           <div id="text">
             <div id="wrapper">
-              <div id="title">{props.title}</div>
-              <div id="releaseYear">,{props.releaseYear}</div>
+              <p id="title">{props.title}</p>
+              <p id="releaseYear">,{props.releaseYear}</p>
             </div>
             <div id="genre">{props.genre}</div>
             <div id="rating">{props.rating}</div>
           </div>
-          <div id="vertical-line" />
         </Link>
+          <div id="vertical-line" />
         <div id="buttons" >
           <div className="button-bg">
             <img className="icon" 
@@ -34,7 +34,6 @@ function ListEntry(props){
           </div>
         </div>
       </div>
-    
   )
 }
 

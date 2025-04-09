@@ -1,11 +1,16 @@
 import { useContext, useState } from "react"
+import HelpIcon from "../assets/help.svg"
 import ListEntry from "../components/ListEntry.jsx"
 import Nav from "../components/Nav.jsx"
 import Modal from "../components/Modal.jsx"
-import DropDown from "../components/DropDown.jsx"
 import { UserContext } from "../App.jsx"
 import "./DashboardPage.css"
 
+function json_to_objs(text) {
+  let games = JSON.parse(text);
+  games.map((obj) => obj.rating = "0") // replace with the user rating from db
+  return games
+}
 
 function DashboardPage() {
   
@@ -58,25 +63,50 @@ function DashboardPage() {
       "genre": "multiplayer,FPS"
     }
   ]`
-          
-  function json_to_objs(text) {
-    let games = JSON.parse(text);
-    return games
+  
+  let gameList = json_to_objs(games)
+
+  // sorting 
+  const [sortValue, setSortValue] = useState('default-asc');
+
+  switch(sortValue.split("-")[0]) {
+    case "name":
+      gameList.sort((a, b) => a.name.localeCompare(b.name))
+      break;
+    case "year":
+      gameList.sort((a, b) => Number(a.rdate.split(" ")[2]) - Number(b.rdate.split(" ")[2]) )
+      break;
+    case "rating":
+      gameList.sort((a, b) => Number(a.rating) - Number(b.rating))
+      break;
+    case "genre":
+      gameList.sort((a, b) => a.genre.split(",")[0].localeCompare(b.genre.split(",")[0]))
+      break;
+    default:
+      gameList
   }
-          
-  let gamesList = json_to_objs(games)
-          
-  let list = gamesList.map((obj) => <ListEntry 
+
+  if (sortValue.split("-")[1] == "dec") {
+    gameList.reverse()
+  }
+  
+  // filtering
+  const [fitlerValue, setFitlerValue] = useState('default');
+  const [fitlerString, setFitlerString] = useState('');
+  
+
+
+
+
+  let list = gameList.map((obj) => <ListEntry 
     key={obj.appid}
     title={obj.name}
     releaseYear={obj.rdate.split(" ")[2]}
-    rating={"XX%"}
+    rating={obj.rating}
     imageLink={obj.img}
     genre={obj.genre.split(",")[0]}
     />
   ) 
-       
-  const [dropDownIsOpen, setDropDownIsOpen] = useState(false);
 
   // example on how to use modal
   // 
@@ -94,29 +124,61 @@ function DashboardPage() {
       <Nav />
       <main>
         <section id="list">
+          <div id="title">
+            <h1>My List</h1>
+            <img src={HelpIcon} alt="Help-Icon"/>
+          </div>
+          <hr />
           {list} 
         </section>
         <section id="filter-sort">
-          <h1>Filter & sort options</h1>
-          <DropDown
-          text='Sort'
-          open={dropDownIsOpen}
-          onClose={() => setDropDownIsOpen(!dropDownIsOpen)}
-          >
-            <h1 className="drop-down-header">Ascending</h1>
-            <hr />
-            <p className="drop-down-content">Name</p>
-            <p className="drop-down-content">Year</p>
-            <p className="drop-down-content">Rating</p>
-            <p className="drop-down-content">Genre</p>
 
-            <h1 className="drop-down-header">Descending</h1>
-            <hr />
-            <p className="drop-down-content">Name</p>
-            <p className="drop-down-content">Year</p>
-            <p className="drop-down-content">Rating</p>
-            <p className="drop-down-content">Genre</p>
-          </DropDown>
+          <h1>Sort</h1>
+          <form action="" id="sorting">
+
+            <div id="ascending">
+              <h2>Ascending</h2>
+              <input type="radio" id="default-asc" name="sort" value="default-asc" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="default-asc"> Default</label> <br />
+              <input type="radio" id="name-asc" name="sort" value="name-asc" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="name-asc"> Name</label> <br />
+              <input type="radio" id="year-asc" name="sort" value="year-asc" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="year-asc"> Year</label> <br />
+              <input type="radio" id="rating-asc" name="sort" value="rating-asc" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="rating-asc"> Rating</label> <br />
+              <input type="radio" id="genre-asc" name="sort" value="genre-asc" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="genre-asc"> Genre</label> <br />
+            </div>
+
+            <div id="descending">
+              <h2>Descending</h2>
+              <input type="radio" id="default-dec" name="sort" value="default-dec" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="default-dec"> Default</label> <br />
+              <input type="radio" id="name-dec" name="sort" value="name-dec" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="name-dec"> Name</label> <br />
+              <input type="radio" id="year-dec" name="sort" value="year-dec" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="year-dec"> Year</label> <br />
+              <input type="radio" id="rating-dec" name="sort" value="rating-dec" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="rating-dec"> Rating</label> <br />
+              <input type="radio" id="genre-dec" name="sort" value="genre-dec" onChange={e => setSortValue(e.target.value)}/>
+              <label htmlFor="genre-dec"> Genre</label> <br />
+            </div>
+
+          </form>
+
+          <h1>Filter</h1>
+
+          <form action="" id="filtering">
+            <input type="radio" id="name-filter" name="filter"/>
+            <label htmlFor="name-filter"> Name</label>
+            <input type="radio" id="year-filter" name="filter"/>
+            <label htmlFor="year-filter"> Year</label>
+            <input type="radio" id="rating-filter" name="filter"/>
+            <label htmlFor="rating-filter"> Rating</label>
+            <input type="radio" id="genre-filter" name="filter"/>
+            <label htmlFor="genre-filter"> Genre</label>
+          </form>
+
         </section>
       </main>
     </div>
