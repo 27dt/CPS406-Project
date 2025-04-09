@@ -1,13 +1,18 @@
 .register-page {
     height: 100%;
     width: 100%;
-    background-color: darkgray;
+    background-image:
+        linear-gradient(to right, white, transparent 1px),
+        linear-gradient(to bottom, white, transparent 1px),
+        linear-gradient(to bottom, rgb(86, 86, 255), rgb(193, 52, 193));
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+    background-blend-mode: overlay;
 }
 
 .register-box {
     width: 25%;
     height: fit-content;
-    background-color: rgb(51, 230, 243);
+    background-color: rgb(255, 255, 255);
     border-radius: 1.5rem;
     padding: 2rem;
     margin: auto;
@@ -20,7 +25,8 @@
     text-align: center;
 }
 
-h1 {
+.register-page h1 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 3.25rem;
 }
 
@@ -30,9 +36,41 @@ h1 {
     margin-top: 2rem;
 }
 
-.entry input {
-    width: 16rem;
-    margin-top: 2rem;
+.r-entry input {
+    border: none;
+    border-bottom: 1px solid;
+    padding: 0.25rem 0;
+    background: transparent;
+    outline: none;
+    font-size: 1.25rem;
+}
+
+.register-conf {
+    padding: 0.5rem 1rem;
+    margin: 2rem 0rem;
+    border-radius: 2rem;
+    border: none;
+    width: 100%;
+    background: linear-gradient(to right, blue, purple);
+    color: white;
+}
+
+.error-msg {
+    margin-top: 1.5rem;
+    color: red;
+    text-align: left;
+}
+
+.register-conf:hover {
+    background: grey;
+}
+
+.register-login {
+    border: none;
+    border-radius: 2rem;
+    padding: 0.25rem 0rem;
+    width: 14rem;
+    color: grey;
 }
 
 .form-button {

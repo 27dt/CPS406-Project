@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 
 import EntryField from "../components/EntryField.jsx"
-import FormButton from "../components/FormButton.jsx"
 
 import "./LoginPage.css"
 
@@ -37,10 +37,6 @@ function LoginPage() {
     }
     if (!values.password) {
       errors.password = "Password is required!";
-    } else if (values.password.length < 5) {
-      errors.password = "Password must be at least 6 characters!"
-    } else if (values.password.length > 200) {
-      errors.password = "Password must be less than 200 cha... wait why did you-"
     }
     return errors;
   };
@@ -52,6 +48,7 @@ function LoginPage() {
 
         <section className="main-content-login">
           <form onSubmit={handleSubmit}>
+            <p className="error-msg">{formErrors.username}</p>
             <EntryField 
               className="entry"
               type="text"
@@ -60,6 +57,7 @@ function LoginPage() {
               value={formValues.username}
               onChange={handleChange}>
             </EntryField>
+            <p className="error-msg">{formErrors.password}</p>
             <EntryField 
               className="entry"
               type="password"
@@ -68,13 +66,17 @@ function LoginPage() {
               value={formValues.password}
               onChange={handleChange}>
             </EntryField>
-            <FormButton className="login-btn" text="Login"></FormButton>
+            <button className="login-btn">LOGIN</button>
           </form>
         </section>
 
         <section className="link-content-login">
-          <a href="/#/forgotpassword">Forgot your password?</a>
-          <p>Don't have an account? <a href="/#/register">Register</a> instead!</p>
+          <Link to="/register">
+            <button className="register-btn">SIGN UP</button>
+          </Link>
+          <Link to="/forgotpassword">
+            <button className="forgot-btn">FORGOT PASSWORD</button>
+          </Link>
         </section>
       </div>
     </div>
