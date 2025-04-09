@@ -1,4 +1,3 @@
-import "./EntryField.css"
 
 function EntryField(props) {
     return (

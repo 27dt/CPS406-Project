@@ -1,6 +1,7 @@
 :root {
   --bg-color: rgb(35, 35, 35);
   --main-color: rgb(50, 50, 50);
+  --secondary-color: rgb(75, 75, 75);
   --accent-color: rgb(140, 152, 189);
   --text-color: rgb(220, 220, 220);
   --secondary-text-color: rgb(180, 180, 180);
@@ -28,5 +29,9 @@ body {
 .page {
   display: grid;
   grid-template-columns: auto 1fr;
+}
+
+#root {
+  height: 100vh;
 }
 

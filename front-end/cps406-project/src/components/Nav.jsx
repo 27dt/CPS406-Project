@@ -25,16 +25,9 @@ function Nav() {
         </li>
 
         <li>
-          <Link to="/" >
+          <Link to="/dashboard" >
             <img className="icon" src={home} alt="Home button"/>
             <span>Home</span>
-          </Link>
-        </li>
-
-        <li>
-          <Link to="/recommend" >
-            <img className="icon" src={favorite} alt="Reccomended games button"/>
-            <span>Recommend</span>
           </Link>
         </li>
 

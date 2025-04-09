@@ -43,13 +43,15 @@ main{
     margin: 1rem 0rem;
     text-align: center;
   }
+  
+  form {
+    border-radius: 10px;
+    background-color: var(--main-color);
+    padding: 1.5rem;
+  }
 }
 
-form {
-  border-radius: 10px;
-  background-color: var(--main-color);
-  padding: 1.5rem;
-}
+
 
 #filter-sort label {
   font-size: 1.25rem;
