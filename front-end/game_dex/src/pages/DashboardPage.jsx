@@ -103,6 +103,7 @@ function DashboardPage() {
   let list = gameList.map((obj) => <ListEntry 
     myList={true}
     key={obj.appid}
+    id={obj.appid}
     title={obj.name}
     releaseYear={obj.rdate.split(" ")[2]}
     rating={obj.rating}

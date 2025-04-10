@@ -63,7 +63,7 @@ function App() {
             <Route path='/forgotpassword' element={<ForgotPassPage />}/>
             <Route path='/dashboard' element={<DashboardPage />}/>
             <Route path='/search' element={<SearchPage />}/>
-            <Route path='/gamepage' element={<GamePage />}/>
+            <Route path='/games/:id' element={<GamePage />}/>
             <Route path='/settings' element={<SettingsPage />}/>
           </Routes>
         </Router>

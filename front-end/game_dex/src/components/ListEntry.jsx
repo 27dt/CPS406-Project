@@ -10,7 +10,7 @@ function ListEntry(props){
   
   return(
       <div id="outer-container">
-        <Link id="inner-container" to="/game-page">
+        <Link id="inner-container" to={"/games/" + props.id}>
           <img src={props.imageLink} alt="" />
           <div id="text">
             <div id="wrapper">
@@ -55,6 +55,7 @@ function ListEntry(props){
 
 ListEntry.propTypes = {
   myList: PropTypes.bool,
+  id: PropTypes.number,
   title: PropTypes.string,
   releaseYear: PropTypes.string,
   imageLink: PropTypes.string,
