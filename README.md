@@ -1,5 +1,6 @@
 # GameDex
-A full-stack React app built with [Vite](https://vite.dev/) & [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet), meant to help you organize and rate a catalog of games that you've played or want to play!
+A full-stack app built with React on the frontend, [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet) on the backend, and PostgreSQL for the database. 
+GameDex allows you to search for steam games and supply them a rating, adding them to a personal list linked to your specific user.
 
 ## Features
 1. Create an account, with a username and password
@@ -11,8 +12,6 @@ A full-stack React app built with [Vite](https://vite.dev/) & [ASP.NET](https://
 |     Tech      |          Purpose           |
 |---------------|----------------------------|
 |     React     |      Frontend Library      |
-|     Vite      |       QoL Build Tool       |
-|      CSS      |          Styling           |
 |    ASP.NET    |       Backend Library      | 
 |   PostgreSQL  |          Database          |
 |    Docker     |      Containerization      |
