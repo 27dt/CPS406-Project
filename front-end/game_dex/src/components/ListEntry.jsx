@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import "./ListEntry.css"
 import deleteIcon from "../assets/delete.svg"
 import editIcon from "../assets/edit.svg"
+import plusIcon from "../assets/plus.svg"
 
 function ListEntry(props){
   
@@ -20,24 +21,40 @@ function ListEntry(props){
             <div id="rating">{props.rating}</div>
           </div>
         </Link>
+        {props.myList ?
+        <>
+        <div id="vertical-line" />
+          <div id="buttons" >
+            <div className="button-bg">
+              <img className="icon" 
+              src={editIcon} 
+              alt='edit button'/>
+            </div>
+            <div className="button-bg">
+              <img className="icon" 
+              src={deleteIcon} 
+              alt='delete button'/>
+            </div>
+          </div>
+          </> 
+          :
+          <>
           <div id="vertical-line" />
-        <div id="buttons" >
-          <div className="button-bg">
-            <img className="icon" 
-            src={editIcon} 
-            alt='edit button'/>
-          </div>
-          <div className="button-bg">
-            <img className="icon" 
-            src={deleteIcon} 
-            alt='delete button'/>
-          </div>
-        </div>
+            <div id="buttons" >
+              <div className="button-bg">
+                <img className="icon" 
+                src={plusIcon}
+                alt='edit button'/>
+              </div>
+            </div>
+            </>
+          }
       </div>
   )
 }
 
 ListEntry.propTypes = {
+  myList: PropTypes.bool,
   title: PropTypes.string,
   releaseYear: PropTypes.string,
   imageLink: PropTypes.string,

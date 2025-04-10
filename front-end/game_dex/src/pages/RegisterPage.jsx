@@ -8,7 +8,6 @@ function RegisterPage() {
   const initialValues = {username:"", password:"", confpass:""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -18,15 +17,7 @@ function RegisterPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
-    setIsSubmit(true);
   };
-
-  useEffect (() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-    }
-  }, [formErrors])
 
   const validate = (values) => {
     const errors = {};

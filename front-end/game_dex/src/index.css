@@ -4,8 +4,15 @@
   --secondary-color: rgb(75, 75, 75);
   --accent-color: rgb(140, 152, 189);
   --text-color: rgb(220, 220, 220);
-  --secondary-text-color: rgb(180, 180, 180);
+  --error-text-color: rgb(231, 75, 75);
+  --btn-color: rgb(170, 170, 170);
+  --btn-hover-color: rgb(230, 230, 230);
   --hover-color: rgb(65, 65, 65);
+}
+
+
+.error-msg {
+  color: var(--error-text-color);
 }
 
 * {

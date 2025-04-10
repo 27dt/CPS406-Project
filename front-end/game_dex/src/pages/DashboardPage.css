@@ -1,5 +1,5 @@
 
-main{
+#dash-board-page{
   display: grid;
   grid-template-columns: 70% 30% ;
 }
@@ -115,6 +115,10 @@ main{
 #help-modal {
   width: 50rem;
   height: 8rem;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
 }
 
 

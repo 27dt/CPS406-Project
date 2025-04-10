@@ -1,6 +1,5 @@
 import { useReducer, createContext } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
-import RecommendPage from './pages/RecommendPage.jsx'
 import SettingsPage from './pages/SettingsPage.jsx'
 import GamePage from './pages/GamePage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
@@ -17,19 +16,32 @@ function App() {
   const initialState = {
     isLoggedIn: false,
     username: '',
+    password: '',
     darkMode: true
   }
   
   const reducer = (state, action) => {
     switch(action.type) {
       case 'login':
-        const newState = initialState
-        newState.isLoggedIn = true;
-        newState.username = action.payload;
-        newState.darkMode = true ;// grab from user settings in db
-        return newState;
+        let newState_login = initialState
+        newState_login.isLoggedIn = true;
+        newState_login.username = action.payload;
+        newState_login.darkMode = true ;// grab from user settings in db
+        return newState_login;
+
       case 'logout':
         return initialState;
+
+      case 'update-username':
+        let newState_update_user = initialState // make a patch call to update the user in users table
+        newState_update_user.username = action.payload;
+        return newState_update_user;
+
+      case 'update-password':
+        let newState_update_pass = initialState // make a patch call to update the user in users table
+        newState_update_pass.password = action.payload;
+        return newState_update_pass;
+        
       default:
         console.log("WRONG DISPATCH CALLED");
         return state;
@@ -52,7 +64,6 @@ function App() {
             <Route path='/dashboard' element={<DashboardPage />}/>
             <Route path='/search' element={<SearchPage />}/>
             <Route path='/gamepage' element={<GamePage />}/>
-            <Route path='/recommend' element={<RecommendPage />}/>
             <Route path='/settings' element={<SettingsPage />}/>
           </Routes>
         </Router>

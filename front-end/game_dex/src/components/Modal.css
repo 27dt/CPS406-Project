@@ -15,7 +15,7 @@
   transform: translate(-50%, -50%);
   background-color: var(--bg-color);
   border-radius: .5rem;
-  padding: 3rem;
+  padding: 4rem;
   z-index: 100;
 }
 

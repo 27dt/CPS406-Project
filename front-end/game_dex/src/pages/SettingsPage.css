@@ -1,0 +1,111 @@
+#settings-page {
+
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 10rem;
+  text-align: center;
+
+  h1 {
+    font-size: 4rem;
+    margin: 3rem 0rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  hr {
+    transform: translateX(-3%);
+    width: 106%;
+    border: 1px solid var(--accent-color);
+    margin-bottom: 1rem;
+  }
+
+  div {
+    margin: 1rem 0rem;
+  }
+
+  #account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h3 {
+      margin-left: 2.5rem;
+    }
+
+    img {
+      border-radius: 100rem;
+    }
+
+    #account-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .button-bg:hover{
+      background-color: var(--hover-color);
+    }
+
+    .button-bg {
+      border-radius: .5em;
+      margin-left: 3rem;
+      padding: .5rem;
+      height: 4rem;
+
+      img {
+        fill: var(--text-color);
+        width: 4rem;
+      }
+    }
+  }
+}
+
+
+#update-modal {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .entry {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+  }
+  
+  .login-btn {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    border: none;
+    width: 50%;
+    background-color: var(--btn-color);
+  }
+  .login-btn:hover {
+    background-color: var(--btn-hover-color) ;
+  }
+
+  .error-msg {
+    color: var(--error-text-color);
+  }
+
+  input {
+    padding: .25rem;
+    border: 0px;
+    color: var(--text-color);
+    font-size: 1.25rem;
+    background-color: rgb(100, 100, 100);
+    border-radius: 5px;
+    outline: none;
+  }
+  input:focus {
+    outline: none;
+  }
+
+}

@@ -1,13 +1,12 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EntryField from "../components/EntryField.jsx"
 import "./LoginPage.css"
 
 function LoginPage() {
-  const initialValues = {username:"", password:""};
+  const initialValues = {username: "", password: ""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -19,13 +18,6 @@ function LoginPage() {
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
-
-  useEffect (() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-    }
-  }, [formErrors])
 
   const validate = (values) => {
     const errors = {};

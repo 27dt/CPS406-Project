@@ -10,7 +10,7 @@
 #outer-container #inner-container {
   color: var(--text-color);
   display: flex;
-  width: 90%;
+  width: 100%;
 }
 
 #outer-container #inner-container img {

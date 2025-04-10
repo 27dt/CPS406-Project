@@ -1,0 +1,42 @@
+#search-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0rem 10rem;
+  display: flex;
+  flex-direction: column;
+
+  hr {
+    transform: translateX(-3%);
+    width: 106%;
+    border: 1px solid var(--accent-color);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    margin: 3rem 0rem;
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 10rem;
+  }
+
+  .search-entry {
+    
+    
+    margin: 1rem 0rem;
+
+    input {
+      background-color: var(--secondary-color);
+      border-radius: .5rem;
+      color: var(--text-color);
+      font-size: 2rem;
+      padding: 1rem;
+      width: calc(100% - 2rem);
+      outline: none;
+      border: none;
+    }
+  }
+}

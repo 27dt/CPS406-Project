@@ -2,7 +2,7 @@
 #sidebar {
   box-sizing: border-box;
   height: 100vh;
-  width: 220px;
+  width: 240px;
   padding: 5px .7em;
   background: var(--main-color);
   border-right: 2px solid var(--accent-color);
@@ -24,6 +24,7 @@
   width: fit-content;
 }
 #sidebar a {
+  cursor: pointer;
   border-radius: .5em;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -47,4 +48,5 @@
   font-size: 1.25rem;
   flex-grow: 1;
 }
+
 

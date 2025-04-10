@@ -95,12 +95,13 @@ function DashboardPage() {
   }
   
   // filtering
-  const [fitlerValue, setFitlerValue] = useState('name');
-  const [fitlerString, setFitlerString] = useState('');
+  const [filterValue, setFilterValue] = useState('name');
+  const [filterString, setFilterString] = useState('');
 
-  gameList = gameList.filter((game) => game[fitlerValue].toLowerCase().includes(fitlerString.toLowerCase()))
+  gameList = gameList.filter((game) => game[filterValue].toLowerCase().includes(filterString.toLowerCase()))
 
   let list = gameList.map((obj) => <ListEntry 
+    myList={true}
     key={obj.appid}
     title={obj.name}
     releaseYear={obj.rdate.split(" ")[2]}
@@ -116,10 +117,12 @@ function DashboardPage() {
   return (
     <div className="page">
       <Nav />
-      <main>
+      <main id="dash-board-page">
         <Modal open={modalIsOpen} onClose={() => setModalIsOpen(false)}>
           <div id="help-modal">
+            <h1>This is a list entry</h1>
             <ListEntry 
+            myList={true}
             key={-1}
             title={"Game Title"}
             releaseYear={"Release year"}
@@ -175,22 +178,22 @@ function DashboardPage() {
           <h1>Filter</h1>
 
           <form action="" id="filtering">
-            <input type="radio" id="name-filter" name="filter" value="name" onChange={e => setFitlerValue(e.target.value)}/>
+            <input type="radio" id="name-filter" name="filter" value="name" onChange={e => setFilterValue(e.target.value)}/>
             <label htmlFor="name-filter"> Name</label>
-            <input type="radio" id="year-filter" name="filter" value="year" onChange={e => setFitlerValue(e.target.value)}/>
+            <input type="radio" id="year-filter" name="filter" value="year" onChange={e => setFilterValue(e.target.value)}/>
             <label htmlFor="year-filter"> Year</label>
-            <input type="radio" id="rating-filter" name="filter" value="rating" onChange={e => setFitlerValue(e.target.value)}/>
+            <input type="radio" id="rating-filter" name="filter" value="rating" onChange={e => setFilterValue(e.target.value)}/>
             <label htmlFor="rating-filter"> Rating</label>
-            <input type="radio" id="genre-filter" name="filter" value="genre" onChange={e => setFitlerValue(e.target.value)}/>
+            <input type="radio" id="genre-filter" name="filter" value="genre" onChange={e => setFilterValue(e.target.value)}/>
             <label htmlFor="genre-filter"> Genre</label>
 
             <EntryField 
             className="filter-entry"
             type="text" 
             name="filter-entry"
-            placeholder="Search"
-            value={fitlerString}
-            onChange={e => setFitlerString(e.target.value)}
+            text="Search"
+            value={filterString}
+            onChange={e => setFilterString(e.target.value)}
             />
           </form>
 

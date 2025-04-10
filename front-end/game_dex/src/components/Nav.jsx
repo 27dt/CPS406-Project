@@ -4,7 +4,7 @@ import { useState } from "react"
 import menu from "../assets/menu.svg"
 import home from "../assets/home.svg"
 import search from "../assets/search.svg"
-import favorite from "../assets/favorite.svg"
+import logo from "../assets/logo.svg"
 import settings from "../assets/settings.svg"
 
 
@@ -19,8 +19,10 @@ function Nav() {
     <nav id="sidebar" className={isOpen ? "" : "close"}>
       <ul>
         <li>
-          <a onClick={toggleSideBar}>
+          <a id="menu-a"onClick={toggleSideBar}>
               <img className="icon" src={menu} alt="Menu button"/>
+              <span >GameDex</span>
+              <img className="icon" src={logo} alt="Menu button"/>
           </a>
         </li>
 
