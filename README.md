@@ -23,6 +23,6 @@ A full-stack React app built with [Vite](https://vite.dev/) & [Postgres](https:/
 4. Run the app: ```npm run dev``` (Inside the src directory) 
 
 ## About the Developers...
-Jonathan Romao & Shaheed Headley --> Frontend
-Daniel Trakas & John Boersema --> Backend
-Paul Kabbya --> Project Management & Testing
+Jonathan Romao & Shaheed Headley --> Frontend <br>
+Daniel Trakas & John Boersema --> Backend <br>
+Paul Kabbya --> Project Management & Testing 
