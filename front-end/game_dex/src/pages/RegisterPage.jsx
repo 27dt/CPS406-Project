@@ -1,15 +1,45 @@
 import EntryField from "../components/EntryField.jsx"
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
+import { useState, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import { UserContext } from "../App.jsx" 
 
 import "./RegisterPage.css"
+
+const api = import.meta.env.VITE_API_URL;
+
+async function register(formValues, dispatch, navigate) {
+  delete formValues.confpass;
+  
+  let user = (fetch(`${api}/users/add`, {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formValues)
+  }).then((res) => res.json()));
+  
+  navigate('/dashboard');
+  dispatch({type: 'login', username: await user.username, password: await user.password, uid: await user.uid})
+}
+
 
 function RegisterPage() {
   const initialValues = {username:"", password:"", confpass:""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+  
+  const [isValid, setIsValid] = useState(false);
+
+  const {userState, userDispatch} = useContext(UserContext)
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isValid) {
+      register(formValues, userDispatch, navigate)
+    }
+  }, [isValid])
 
   const handleChange = (e) => {
+    console.log("API URL: ", api)
     const {name, value} = e.target;
     setFormValues({...formValues, [name]:value});
   };
@@ -37,6 +67,10 @@ function RegisterPage() {
       errors.confpass = "Please confirm your password!";
     } else if (values.confpass != values.password) {
       errors.confpass = "Passwords do not match!";
+    } 
+
+    if (Object.keys(errors).length == 0) {
+      setIsValid(true);
     } 
 
     return errors;

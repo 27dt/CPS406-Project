@@ -11,7 +11,15 @@
 }
 
 [data-theme="light"] {
-  
+  --bg-color: rgb(255, 255, 255);
+  --main-color: rgb(210, 210, 210);
+  --secondary-color: rgb(190, 190, 190);
+  --accent-color: rgb(95, 116, 182);
+  --text-color: rgb(30, 30, 30);
+  --error-text-color: rgb(196, 49, 49);
+  --btn-color: rgb(150, 150, 150);
+  --btn-hover-color: rgb(211, 208, 208);
+  --hover-color: rgb(170, 170, 170);
 }
 
 
@@ -22,6 +30,7 @@
 * {
   margin: 0px;
   padding: 0px;
+  transition: background-color .25s ease;
 }
 
 html {

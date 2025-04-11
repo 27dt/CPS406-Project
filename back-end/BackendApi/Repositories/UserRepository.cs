@@ -43,13 +43,15 @@ namespace BackendApi.Repositories {
         }
 
         // Uses a login payload (user, pass) to match to a user in the table.
-        public async Task<bool> LoginUser(Login payload) {
+        public async Task<User?> LoginUser(Login payload) {
             var user = await _context.users.Where(t => t.password == payload.password && t.username == payload.username).FirstAsync();
 
             if (user != null) {
-                return true;
+                return user;
+            } 
+            else {
+              return null;
             }
-            return false;
         }
     }
 }

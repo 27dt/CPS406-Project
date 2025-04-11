@@ -21,7 +21,19 @@ builder.Services.AddOpenApiDocument(config => {
     config.Version = "v1";
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // your Vite dev server
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors(); // Make sure this goes before app.UseAuthorization(), app.UseEndpoints(), etc.
 
 app.UseOpenApi();
 app.UseSwaggerUi(config => {
@@ -44,8 +56,10 @@ app.MapGroup("/games")
     .WithTags("Games API");
 
 // GET ENDPOINT /login, verifies a passed username/password corresponds to a user in the table.
-app.MapGet("/login", async ([FromBody]Login payload, IUserRepository userRepository) => {
-    await userRepository.LoginUser(payload);
-});
+app.MapPost("/login", async ([FromBody]Login payload, IUserRepository userRepository) => 
+    await userRepository.LoginUser(payload)
+    is User user
+      ? Results.Ok(user.uid)
+      : Results.NotFound("fail"));
 
 app.Run();

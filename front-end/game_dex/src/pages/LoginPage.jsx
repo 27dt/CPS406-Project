@@ -1,12 +1,42 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import EntryField from "../components/EntryField.jsx"
+import { UserContext } from "../App.jsx";
 import "./LoginPage.css"
+
+const api = import.meta.env.VITE_API_URL;
+
+async function login(formValues, dispatch, navigate) {
+  let response  =  fetch(`${api}/login`, {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formValues)
+  }).then((res) => res.json())
+  
+  if (await response != "fail") {
+    dispatch({type: 'login', username: formValues.username, password: formValues.password, uid: await response})
+    navigate("/dashboard")
+  }
+}
+
+
 
 function LoginPage() {
   const initialValues = {username: "", password: ""};
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+
+  const [isValid, setIsValid] = useState(false);
+  
+  const {userState, userDispatch} = useContext(UserContext)
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isValid) {
+      login(formValues, userDispatch, navigate);
+    }}, [isValid])
+
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -16,10 +46,9 @@ function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
-    setIsSubmit(true);
   };
-
-  const validate = (values) => {
+  
+  const validate = async (values) => {
     const errors = {};
 
     if (!values.username) {
@@ -28,6 +57,11 @@ function LoginPage() {
     if (!values.password) {
       errors.password = "Password is required!";
     }
+    
+    if (Object.keys(errors).length == 0) {
+      setIsValid(true);
+    } 
+
     return errors;
   };
 

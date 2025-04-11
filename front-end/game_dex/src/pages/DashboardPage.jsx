@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import HelpIcon from "../assets/help.svg"
 import ListEntry from "../components/ListEntry.jsx"
 import EntryField from "../components/EntryField.jsx"
@@ -68,6 +68,8 @@ function DashboardPage() {
     }
   ]`
   
+  console.log(userState)
+
   let gameList = json_to_objs(games)
 
   // sorting 

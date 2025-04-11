@@ -11,20 +11,23 @@ import LandingPage from './pages/LandingPage.jsx'
 
 export const UserContext = createContext();
 
+
 function App() {
 
   const initialState = {
     isLoggedIn: false,
+    uid: 0,
     username: '',
     password: '',
     darkMode: true
   }
-  
+
   const reducer = (state, action) => {
     switch(action.type) {
-      case 'login': // this needs a action.type action.username action.password
-        let newState = initialState
+      case 'login': // this needs a action.type action.username action.password action.uid
+        let newState_login = initialState
         newState_login.isLoggedIn = true;
+        newState_login.uid = action.uid;
         newState_login.username = action.payload;
         newState_login.password = action.password;
         newState_login.darkMode = true ;// grab from user settings in db

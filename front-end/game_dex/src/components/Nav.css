@@ -42,7 +42,7 @@
 #sidebar img {
   width: 40px;
   flex-shrink: 0;
-  fill: var(--text-color);
+  fill: red;
 }
 #sidebar span {
   font-size: 1.25rem;
