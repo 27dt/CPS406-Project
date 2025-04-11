@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 0rem 10rem;
   text-align: center;
+  align-items: center;
 
   h1 {
     font-size: 4rem;
@@ -64,6 +65,15 @@
         width: 4rem;
       }
     }
+  }
+
+  #preferences {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+
   }
 }
 

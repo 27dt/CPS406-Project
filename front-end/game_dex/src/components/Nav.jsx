@@ -21,7 +21,7 @@ function Nav() {
         <li>
           <a id="menu-a"onClick={toggleSideBar}>
               <img className="icon" src={menu} alt="Menu button"/>
-              <span >GameDex</span>
+              <span id="website-title"><b>GameDex</b></span>
               <img className="icon" src={logo} alt="Menu button"/>
           </a>
         </li>

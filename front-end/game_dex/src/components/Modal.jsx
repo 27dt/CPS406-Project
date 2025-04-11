@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { createPortal } from "react-dom"
 import closeIcon from '../assets/close.svg'
 import './Modal.css'
@@ -10,6 +11,17 @@ function Modal({open, children, onClose}) {
     document.body.style.overflowY = 'auto'
   }
   
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown, true)
+  }, [])
+
+  const handleKeyDown = (e) => {
+    if (e.key == 'Escape') {
+      onClose()
+    } 
+  }
+
+
   return createPortal( open &&
     <>
       <div 

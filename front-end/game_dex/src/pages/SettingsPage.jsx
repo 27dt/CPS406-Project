@@ -1,5 +1,6 @@
-import { useContext, useEffect, useState } from "react"
+import { use, useContext, useEffect, useState } from "react"
 import EntryField from "../components/EntryField.jsx"
+import Toggle from "../components/Toggle.jsx"
 import Modal from "../components/Modal.jsx"
 import Nav from "../components/Nav.jsx"
 import { UserContext } from "../App.jsx"
@@ -105,12 +106,18 @@ function SettingsPage() {
                 value={formValues.password}
                 onChange={handleChange}>
               </EntryField>
-              <button className="login-btn">LOGIN</button>
+              <button className="login-btn">UPDATE</button>
             </form>
           </Modal>
         </div>
         <hr />
         <h2>Preferences</h2>
+        <div id="preferences">
+          <h3>Dark Mode:</h3>
+          <Toggle 
+          state={userState.darkMode} 
+          handleChange={() => userDispatch({type: 'switch-theme'})}/>
+        </div>
       </main>
     </div>
   )

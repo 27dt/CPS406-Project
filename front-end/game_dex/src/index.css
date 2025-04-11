@@ -10,6 +10,10 @@
   --hover-color: rgb(65, 65, 65);
 }
 
+[data-theme="light"] {
+  
+}
+
 
 .error-msg {
   color: var(--error-text-color);
