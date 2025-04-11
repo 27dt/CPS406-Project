@@ -1,0 +1,74 @@
+.game-page {
+  overflow: hidden;
+    display: flex;
+    height: 100vh;
+    
+    .column {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .left {
+        padding: 2rem 5rem;
+        flex: 2;
+        overflow-y: auto;
+        border-right: 2px solid var(--accent-color);
+        height: 100vh;
+    }
+    
+    .title-and-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    
+    .right {
+        padding: 2rem 3rem;
+        flex: 1;
+    }
+    
+    .game-info {
+        margin-left: 0.5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+    }
+    
+    .game-title {
+        font-size: 4rem;
+    }
+    
+    .game-desc {
+        margin: 2rem;
+        font-size: 2rem;
+    }
+    
+    .add-btn {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        width: 14rem;
+        height: 6rem;
+        font-size: 2rem;
+        border-radius: 1rem;
+        border: none;
+    }
+    
+    .icon {
+        margin-left: 1rem;
+        margin-right: 0.5rem;
+        top: 0.25rem;
+        font-size: 3rem;
+    }
+
+    .game-image {
+        border-radius: 1.5rem;
+        border: 2px solid var(--accent-color);
+    }
+    
+    p, h1 {
+        line-height: 1.5;
+    }
+}

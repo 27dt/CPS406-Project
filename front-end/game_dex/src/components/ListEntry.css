@@ -1,0 +1,170 @@
+#outer-container {
+  display: flex;
+  border-radius: 10px;
+  color: var(--text-color);
+  padding: 1rem;
+  margin: 0.3rem 0px;
+  height: 6rem;
+  background-color: var(--main-color);
+
+
+  #inner-container {
+    color: var(--text-color);
+    display: flex;
+    width: 100%;
+
+    img {
+      border: 2px solid var(--accent-color);
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+
+  #text {
+    position: relative;
+    margin-left: .8rem;
+    width: 100%;
+  }
+
+  #wrapper {
+    position: absolute;
+    display: flex;
+    left: 0px;
+    bottom: 0px;
+    
+    #title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    #releaseYear {
+      margin-left: 2px;
+      font-style: italic;
+      font-size: 1rem;
+      transform: translateY(.4rem);
+    }
+  }
+
+  #rating {
+    position: absolute;
+    font-size: 2rem;
+    top: 0px;
+    right: 0px;
+  }
+
+  #genre {
+    position: absolute;
+    font-size: 1.25rem;
+    bottom: 0px;
+    right: 0px;
+  }
+
+  #vertical-line {
+    margin: 0px 20px;
+    border-radius: 1px;
+    border: 1px solid var(--accent-color);
+  }
+
+  #buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+
+    img {
+      fill: var(--text-color);
+      width: 2rem;
+    }
+  }
+
+  .button-bg {
+    border-radius: .5em;
+    margin: 5% 0px;
+    padding: .5rem;
+    height: 2rem;
+  }
+
+  .button-bg:hover{
+    background-color: var(--hover-color);
+  }
+}
+
+#delete-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  #game-title {
+    color: var(--accent-color);
+  }
+
+
+  #form-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    button {
+      border: none;
+      border-radius: 1rem;
+      color: var(--text-color);
+      background-color: var(--btn-color);
+      font-size: 1.5rem;
+      height: 3rem;
+      width: 8rem;
+    }
+    button:hover {
+      background-color: var(--btn-hover-color);
+    }
+  }
+
+}
+
+#edit-modal, #add-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  #game-title {
+    color: var(--accent-color);
+  }
+
+  #form-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    button {
+      border: none;
+      border-radius: 1rem;
+      color: var(--text-color);
+      background-color: var(--btn-color);
+      font-size: 1.5rem;
+      height: 2.5rem;
+      width: 6rem;
+    }
+    button:hover {
+      background-color: var(--btn-hover-color);
+    }
+  }
+
+  #form-selection {
+
+    label {
+      font-size: 1.5rem;
+    }
+
+    select {
+      border-radius: .25rem;
+      font-size: 1.5rem;
+      padding: 0rem .5rem;
+      outline: none;
+      border: none;
+    }
+  }
+
+}
+
+

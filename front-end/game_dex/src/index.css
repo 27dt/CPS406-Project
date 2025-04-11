@@ -1,0 +1,48 @@
+:root {
+  --bg-color: rgb(35, 35, 35);
+  --main-color: rgb(50, 50, 50);
+  --secondary-color: rgb(75, 75, 75);
+  --accent-color: rgb(140, 152, 189);
+  --text-color: rgb(220, 220, 220);
+  --error-text-color: rgb(231, 75, 75);
+  --btn-color: rgb(170, 170, 170);
+  --btn-hover-color: rgb(230, 230, 230);
+  --hover-color: rgb(65, 65, 65);
+}
+
+[data-theme="light"] {
+  
+}
+
+
+.error-msg {
+  color: var(--error-text-color);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5rem;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.page {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+#root {
+  height: 100vh;
+}
+
